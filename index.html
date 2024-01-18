@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Firma Twój ogrodnik to idealny wybór dla wszystkich, którzy pragną mieć piękny i zadbany ogród." />
+    <meta name="keywords" content="goród, Twój ogrodnik, pielęgnacja, planowanie, " />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+      integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <title>Strona ogrodnika</title>
+  </head>
+  <body>
+    <div class="navbar">
+      <nav>
+        <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
+        <div class="nav" id="nav">
+          <i class="bi bi-x" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="">STRONA GŁÓWNA</a></li>
+            <li><a href="about.html">O NAS</a></li>
+            <li><a href="services.html">USŁUGI</a></li>
+            <li><a href="galery.html">GALERIA</a></li>
+            <li><a href="contact.html">KONTAKT</a></li>
+          </ul>
+        </div>
+        <i class="bi bi-list" onclick="showMenu()"></i>
+      </nav>
+      <div class="nav-text">
+        <h1>ZAKŁADANIE OGRODÓW</h1>
+        <p>to nasza pasja!</p>
+      </div>
+    </div>
+
+    <div class="about">
+      <h1>KIM JESTEŚMY?</h1>
+      <p>
+        Firma Twój ogrodnik to idealny wybór dla wszystkich, którzy pragną mieć piękny i zadbany ogród.<br /><br />
+        Naszym celem jest stworzenie przestrzeni zielonej, która będzie nie tylko <a> estetyczna</a>, ale również
+        <a>funkcjonalna i praktyczna</a>.<br /><br />
+        Nasz zespół składa się z doświadczonych ogrodników, którzy posiadają wiedzę i umiejętności potrzebne do tworzenia pięknych i zdrowych ogrodów.
+        Oferujemy kompleksowe usługi, które obejmują projektowanie i zakładanie nowych ogrodów, pielęgnację istniejących terenów zielonych,
+        konserwację roślin, nawożenie, cięcie i formowanie krzewów, koszenie trawników, a także walkę z chwastami i inwazją szkodników.<br /><br />
+        Dbamy o każdy szczegół i dostosowujemy usługi do indywidualnych potrzeb i oczekiwań naszych klientów. Jesteśmy elastyczni i otwarci na
+        sugestie, dlatego pracujemy z każdym klientem indywidualnie, aby stworzyć ogród marzeń.<br /><br />
+        Nasze usługi to nie tylko prace porządkowe ale również doradztwo przy doborze roślin i projektowanie ogrodów. Dzięki naszej pomocy Twój ogród
+        będzie prezentował się wspaniale przez cały rok.
+      </p>
+    </div>
+    <div class="galery">
+      <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide"><img src="img/1.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/2.jpg" alt="" /></div>
+          <div class="swiper-slide"><img src="img/3.jpg" alt="" /></div>
+        </div>
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+
+    <div class="services">
+      <h1>Zajmiemy się Twoim ogrodem od A do Z</h1>
+      <p>W tym miejscu pragnęlibyśmy zachęcić Państwa do zapoznania się z ofertą naszej firmy.</p>
+      <div class="kol">
+        <div class="ser">
+          <h3>Projektowanie i zakładanie nowych ogrodów</h3>
+          <p>
+            Oferujemy kompleksową usługę projektowania i zakładania nowych ogrodów. Nasz zespół składa się z doświadczonych projektantów ogrodów,
+            którzy pomogą Ci stworzyć ogród marzeń, spełniający Twoje oczekiwania i dopasowany do Twojego stylu życia.
+          </p>
+        </div>
+        <div class="ser">
+          <h3>Oczyszczanie terenów zielonych</h3>
+          <p>Zajmujemy się oczyszczaniem terenów zielonych, w tym koszeniem chwastów, usuwaniem niepożądanych roślin, wycinaniem drzew i krzewów.</p>
+        </div>
+        <div class="ser">
+          <h3>Pielęgnacja ogrodów</h3>
+          <p>
+            Oferujemy kompleksowe usługi pielęgnacji ogrodów, które obejmują: konserwację roślin, nawożenie, cięcie i formowanie krzewów, koszenie
+            trawników, walkę z chwastami i inwazją szkodników oraz doradztwo przy doborze roślin. Dbamy o każdy szczegół, aby Twój ogród prezentował
+            się pięknie i zdrowo przez cały rok.
+          </p>
+        </div>
+      </div>
+
+      <br />
+      <a href="services.html" class="button">WSZYSTKIE USŁUGI</a>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="footer-col">
+            <h4>Twój ogrodnik</h4>
+            <ul>
+              <li><a href="index.html">STRONA GŁÓWNA</a></li>
+              <li><a href="about.html">O NAS</a></li>
+              <li><a href="services.html">USŁUGI</a></li>
+              <li><a href="galery.html">GALERIA</a></li>
+              <li><a href="contact.html">KONTAKT</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <div class="logo">
+              <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- JS MENU -->
+    <script>
+      var navLinks = document.getElementById(nav);
+      function showMenu() {
+        nav.style.right = "0px";
+      }
+      function hideMenu() {
+        nav.style.right = "-200px";
+      }
+    </script>
+    <!-- GALERIA  -->
+    <script>
+      const swiper = new Swiper(".swiper", {
+        autoplay: {
+          delay: 30000,
+          disableOnInteraction: true,
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+  </body>
+</html>
