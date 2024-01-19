@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
+    <!-- Ustawienia strony -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylizacja strony -->
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
       integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
 
+    <!-- Skrypty JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>Galeria</title>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js"></script>
   </head>
   <body>
+    <!-- Nawigacja -->
     <div class="navbar">
       <nav>
         <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
         <div class="nav" id="nav">
+          <!-- Przycisk zamykający menu -->
           <i class="bi bi-x" onclick="hideMenu()"></i>
+          <!-- Lista linków nawigacyjnych -->
           <ul>
             <li><a href="index.html">STRONA GŁÓWNA</a></li>
             <li><a href="about.html">O NAS</a></li>
@@ -33,50 +49,102 @@
             <li><a href="contact.html">KONTAKT</a></li>
           </ul>
         </div>
+        <!-- Przycisk otwierający menu -->
         <i class="bi bi-list" onclick="showMenu()"></i>
       </nav>
+      <!-- Tekst nawigacyjny -->
       <div class="nav-text">
         <h1>ZAKŁADANIE OGRODÓW</h1>
         <p>to nasza pasja!</p>
       </div>
     </div>
+
+    <!-- Sekcja Galerii -->
     <div class="galery-section">
-        <h1>Galeria naszych realizacji</h1>
-        <div class="swiper">
-          <!-- Additional required wrapper -->
-          <div class="swiper-wrapper">
-            <!-- Slides -->
-            <div class="swiper-slide"><img src="img/1.jpg" alt="" /></div>
-            <div class="swiper-slide"><img src="img/2.jpg" alt="" /></div>
-            <div class="swiper-slide"><img src="img/3.jpg" alt="" /></div>
-          </div>
-          <!-- If we need navigation buttons -->
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
+      <h1>Galeria naszych realizacji</h1>
+      <div class="swiper">
+        <!-- Dodatkowy kontener dla slajdów -->
+        <div class="swiper-wrapper">
+          <!-- Slajdy -->
+          <div class="swiper-slide"><img src="" alt="" id="img1" /></div>
+          <div class="swiper-slide"><img src="" alt="" id="img2" /></div>
+          <div class="swiper-slide"><img src="" alt="" id="img3" /></div>
         </div>
+        <!-- Nawigacja dla galerii -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
     </div>
-    <script>
-        const swiper = new Swiper(".swiper", {
-          autoplay: {
-            delay: 30000,
-            disableOnInteraction: true,
-          },
-          loop: true,
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-        });
+
+    <!-- Skrypty JavaScript z użyciem modułów -->
+    <script type="module">
+      // Konfiguracja Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+      import {
+        getStorage,
+        ref,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-storage.js";
+
+      // Konfiguracja Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyA8eozwLDab9UAXkHyjI4r_6Akz_WEFN84",
+        authDomain: "stronaogrodnka.firebaseapp.com",
+        projectId: "stronaogrodnka",
+        storageBucket: "stronaogrodnka.appspot.com",
+        messagingSenderId: "583356316800",
+        appId: "1:583356316800:web:9deecca329d954c4ff7a65",
+        measurementId: "G-12B9F3JFLW",
+      };
+
+      // Inicjalizacja Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // Pobierz referencję do Firebase Storage
+      const storage = getStorage(app);
+
+      // Pobierz referencje do plików w Storage
+      const imageRef1 = ref(storage, "1.jpg");
+      const imageRef2 = ref(storage, "2.jpg");
+      const imageRef3 = ref(storage, "3.jpg");
+
+      // Inicjalizacja Swipera
+      const swiper = new Swiper(".swiper", {
+        autoplay: {
+          delay: 30000,
+          disableOnInteraction: true,
+        },
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+
+      // Pobierz URL dla każdego obrazu i ustaw jako źródło dla odpowiedniego slajdu
+      getDownloadURL(imageRef1).then(function (url) {
+        document.getElementById("img1").src = url;
+      });
+
+      getDownloadURL(imageRef2).then(function (url) {
+        document.getElementById("img2").src = url;
+      });
+
+      getDownloadURL(imageRef3).then(function (url) {
+        document.getElementById("img3").src = url;
+      });
     </script>
+
+    <!-- Stopka strony -->
     <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="footer-col">
             <h4>Twój ogrodnik</h4>
+            <!-- Lista linków w stopce -->
             <ul>
               <li><a href="index.html">STRONA GŁÓWNA</a></li>
               <li><a href="about.html">O NAS</a></li>
@@ -85,6 +153,7 @@
               <li><a href="contact.html">KONTAKT</a></li>
             </ul>
           </div>
+          <!-- Logo w stopce -->
           <div class="footer-col">
             <div class="logo">
               <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
