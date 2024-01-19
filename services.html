@@ -91,7 +91,7 @@
         // Importowanie funkcji z Firebase
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js';
         import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js';
-
+        import { getAnalytics } from 'https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js';
         // Konfiguracja Firebase
         var firebaseConfig = {
           apiKey: "AIzaSyA8eozwLDab9UAXkHyjI4r_6Akz_WEFN84",
@@ -105,7 +105,7 @@
 
         // Inicjalizacja Firebase
         const app = initializeApp(firebaseConfig);
-
+        const analytics = getAnalytics(app);
         // Pobierz dostęp do Firestore
         const db = getFirestore(app);
 
