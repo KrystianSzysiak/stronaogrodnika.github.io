@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html lang="pl">
   <head>
+    <!-- Ustawienia strony -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Stylizacja strony -->
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
       integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e"
       crossorigin="anonymous"
     />
+
+    <!-- Tytuł strony -->
     <title>Kontakt</title>
   </head>
   <body>
+    <!-- Nawigacja -->
     <div class="navbar">
       <nav>
         <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
         <div class="nav" id="nav">
+          <!-- Przycisk zamykający menu -->
           <i class="bi bi-x" onclick="hideMenu()"></i>
+          <!-- Lista linków nawigacyjnych -->
           <ul>
             <li><a href="index.html">STRONA GŁÓWNA</a></li>
             <li><a href="about.html">O NAS</a></li>
@@ -30,38 +41,71 @@
             <li><a href="contact.html">KONTAKT</a></li>
           </ul>
         </div>
+        <!-- Przycisk otwierający menu -->
         <i class="bi bi-list" onclick="showMenu()"></i>
       </nav>
+      <!-- Tekst nawigacyjny -->
       <div class="nav-text">
         <h1>ZAKŁADANIE OGRODÓW</h1>
         <p>to nasza pasja!</p>
       </div>
     </div>
-    <div class="contact-section">
-        <h1>Skontaktuj się z nami!</h1>
-        <div class="contact-section2">
-        <form action="">
 
-            <label for="fname">Imie i nazwisko</label>
-            <input type="text" id="dane" name="dane" placeholder="Podaj imie i nazwisko">
-            <label for="fname">Email</label>
-            <input type="text" id="mail" name="mail" placeholder="Podaj swój adres email, abyśmy mogli się z Tobą skontaktować">
-            <label for="lname">Nr telefonu</label>
-            <input type="number" id="tel" name="tel" placeholder="Podaj swój nr telefonu, abyśmy mogli się z Tobą skontaktować">
-            <label for="subject">Którą usługę wybierasz</label>
-            <textarea id="subject" name="subject" placeholder="Opisz, z których usług chcesz skorzystać" style="height:150px"></textarea>
-        
-            <input type="submit" value="Wyślij!">
-        
-          </form>
-        </div>
+    <!-- Sekcja Kontakt -->
+    <div class="contact-section">
+      <h1>Skontaktuj się z nami!</h1>
+      <div class="contact-section2">
+        <!-- Formularz kontaktowy -->
+        <form action="">
+          <!-- Pole: Imię i nazwisko -->
+          <label for="dane">Imie i nazwisko</label>
+          <input
+            type="text"
+            id="dane"
+            name="dane"
+            placeholder="Podaj imie i nazwisko"
+          />
+
+          <!-- Pole: Email -->
+          <label for="mail">Email</label>
+          <input
+            type="text"
+            id="mail"
+            name="mail"
+            placeholder="Podaj swój adres email, abyśmy mogli się z Tobą skontaktować"
+          />
+
+          <!-- Pole: Numer telefonu -->
+          <label for="tel">Nr telefonu</label>
+          <input
+            type="number"
+            id="tel"
+            name="tel"
+            placeholder="Podaj swój nr telefonu, abyśmy mogli się z Tobą skontaktować"
+          />
+
+          <!-- Pole: Wybór usługi -->
+          <label for="subject">Którą usługę wybierasz</label>
+          <textarea
+            id="subject"
+            name="subject"
+            placeholder="Opisz, z których usług chcesz skorzystać"
+            style="height: 150px"
+          ></textarea>
+
+          <!-- Przycisk submit -->
+          <input type="submit" value="Wyślij!" />
+        </form>
       </div>
     </div>
+
+    <!-- Stopka strony -->
     <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="footer-col">
             <h4>Twój ogrodnik</h4>
+            <!-- Lista linków w stopce -->
             <ul>
               <li><a href="index.html">STRONA GŁÓWNA</a></li>
               <li><a href="about.html">O NAS</a></li>
@@ -70,6 +114,7 @@
               <li><a href="contact.html">KONTAKT</a></li>
             </ul>
           </div>
+          <!-- Logo w stopce -->
           <div class="footer-col">
             <div class="logo">
               <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
@@ -78,5 +123,66 @@
         </div>
       </div>
     </footer>
+
+    <!-- Skrypt JavaScript z użyciem modułów -->
+    <script type="module">
+      // Importowanie funkcji z Firebase
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+      import {
+        getFirestore,
+        collection,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-firestore.js";
+
+      // Konfiguracja Firebase
+      var firebaseConfig = {
+        apiKey: "AIzaSyA8eozwLDab9UAXkHyjI4r_6Akz_WEFN84",
+        authDomain: "stronaogrodnka.firebaseapp.com",
+        projectId: "stronaogrodnka",
+        storageBucket: "stronaogrodnka.appspot.com",
+        messagingSenderId: "583356316800",
+        appId: "1:583356316800:web:9deecca329d954c4ff7a65",
+        measurementId: "G-12B9F3JFLW",
+      };
+
+      // Inicjalizacja Firebase
+      const app = initializeApp(firebaseConfig);
+
+      // Pobierz dostęp do Firestore
+      const db = getFirestore(app);
+
+      // Znajdź formularz w HTML
+      const form = document.querySelector("form");
+
+      // Nasłuchuj na zdarzenie submit formularza
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        // Pobierz dane z formularza
+        const dane = form.querySelector("#dane").value;
+        const mail = form.querySelector("#mail").value;
+        const tel = form.querySelector("#tel").value;
+        const subject = form.querySelector("#subject").value;
+
+        try {
+          // Dodaj nowy dokument do kolekcji "contact" w bazie danych
+          const docRef = await addDoc(collection(db, "contact"), {
+            dane: dane,
+            mail: mail,
+            tel: tel,
+            subject: subject,
+          });
+
+          console.log(
+            "Dane zostały pomyślnie dodane do bazy danych!",
+            docRef.id
+          );
+
+          // Możesz dodać tutaj dodatkową logikę lub wyświetlanie komunikatów po dodaniu danych do bazy
+        } catch (error) {
+          console.error("Błąd podczas dodawania danych do bazy danych:", error);
+        }
+      });
+    </script>
   </body>
 </html>
